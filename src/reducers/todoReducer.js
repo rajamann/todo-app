@@ -1,8 +1,7 @@
 import * as actions from '../actions'
-const initialState = [{id: 1, text: 'Buy milk', completed: false}]
+const initialState = []
 
 const todoReducer = (state = initialState, action) => {
-    console.log('action', action)
     switch(action.type) {
         case actions.ADD_TODO:
             return [
@@ -13,6 +12,9 @@ const todoReducer = (state = initialState, action) => {
                     completed: action?.payload?.completed
                 }
             ]
+        case actions.TOGGLE_TODO:
+            return state.map(todo => 
+                (todo.id === action.payload) ? {...todo, completed: !todo.completed} : todo)
         default:
             return state
     }
