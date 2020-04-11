@@ -5,7 +5,7 @@ import Todo from '../components/Todo'
 
 const TodoList = ({todos, toggleTodo}) => {
     const renderTodos = () => {
-        return todos.map(todo => <Todo handleOnChange={() => toggleTodo(todo.id)} todo={todo} />)
+        return todos.map(todo => <Todo className='todo' key={todo.id} handleOnChange={() => toggleTodo(todo.id)} todo={todo} />)
     }
 
     return (
